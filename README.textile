@@ -1,0 +1,31 @@
+h1. Red Hat Network command line API tools
+
+This is a would-like-to-expand collection of command line tools which interact with the Red Hat Network API.
+
+h3. extract_affected_systems.py
+
+Red Hat constantly alerts its paying customers via email of the errata when published on rhn.redhat.com . Assuming you've got such a notification, if you want to investigate further and find out which systems are affected by the advisory you can use this python tool:
+
+<pre>
+$ python extract_affected_systems.py -a "RHSA-2012:0350" -u gfidente@redhat.com -p $YOURPASS
+Systems list...
+one.example.com
+four.example.com
+...
+</pre>
+
+you can also list the packages affected by the advisory (which need to be updated):
+
+<pre>
+$ python extract_affected_systems.py -a "RHSA-2012:0350" -u gfidente@redhat.com -p $YOURPASS -P
+Systems list...
+one.example.com
+four.example.com
+...
+Packages list...
+kernel-2.6.32
+kernel-debug-2.6.32
+...
+</pre>
+
+Enjoy.
